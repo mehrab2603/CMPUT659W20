@@ -59,19 +59,14 @@ class EZS:
                             else:
                                 chosen_play = player_2[1].get_action(game)
 
-                            # print('Chose: ', chosen_play)
-                            # game.print_board()
                             game.play(chosen_play)
-                            # game.print_board()
                             number_of_moves += 1
-                            
-                            # print()
+
                         who_won, is_over = game.is_finished()
                         
                         if number_of_moves >= 200:
                             is_over = True
                             who_won = -1
-                            # print('No Winner!')
                             
                     if who_won == 1:
                         player_1[0].add_fitness(1)
