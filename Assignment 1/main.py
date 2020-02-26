@@ -1,3 +1,4 @@
+import os
 import time
 from src.ezs import EZS
 
@@ -48,6 +49,8 @@ if __name__ == "__main__":
     ]
 
     for run_number in range(NUM_RUNS):
+        timestamp = time.strftime("%Y_%m_%d_%H_%M_%S")
+
         for configuration in configurations:
             generations = configuration["generations"]
             population = configuration["population"]
@@ -60,7 +63,7 @@ if __name__ == "__main__":
 
             start = time.time()
 
-            x.start(save_directory="synthesized", run_number=run_number)
+            x.start(save_directory=os.path.join("synthesized", "Run_{}_{}".format(run_number, timestamp)))
 
             end = time.time()
 

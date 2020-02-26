@@ -155,7 +155,7 @@ class EZS:
 
         return Script(id=new_id, single_ifs=new_single_ifs)
 
-    def start(self, save_directory, run_number):
+    def start(self, save_directory=None):
         self._scripts = self.generate_population(generation=0, population=self._population)
 
         for i in range(self._generations):
@@ -181,24 +181,25 @@ class EZS:
 
             end = time.time()
 
-            self.evaluate(scripts=self._scripts, rounds=self._rounds, do_cleanup=False)
-            best_in_generation = self.get_elites(scripts=self._scripts, elites=1)[0]
+            if save_directory is not None:
+                self.evaluate(scripts=self._scripts, rounds=self._rounds, do_cleanup=False)
+                best_in_generation = self.get_elites(scripts=self._scripts, elites=1)[0]
 
-            run_specific_save_directory = os.path.join(
-                save_directory,
-                "Run_{}_{}".format(run_number, time.strftime("%Y_%m_%d_%H_%M_%S")),
-                "{}_{}_{}_{}_{}_{}".format(self._generations, self._population, self._rounds, self._elites, self._tournaments, self._mutations)
-            )
-            filename = "gen_{}.py".format(i)
+                configuration_specific_save_directory = os.path.join(
+                    save_directory,
+                    "Configuration_{}_{}_{}_{}_{}_{}".format(self._generations, self._population, self._rounds, self._elites, self._tournaments, self._mutations)
+                )
+                
+                filename = "gen_{}.py".format(i)
 
-            if not os.path.exists(run_specific_save_directory):
-                os.makedirs(run_specific_save_directory, exist_ok=True)
-            else:
-                os.makedirs(run_specific_save_directory, exist_ok=True)
+                if not os.path.exists(configuration_specific_save_directory):
+                    os.makedirs(configuration_specific_save_directory, exist_ok=True)
+                else:
+                    os.makedirs(configuration_specific_save_directory, exist_ok=True)
 
-            with open(os.path.join(run_specific_save_directory, filename), "w") as f:
-                f.write("# Generated in {} seconds\n".format(end - start))
-                f.write(best_in_generation.get_script_text())
+                with open(os.path.join(configuration_specific_save_directory, filename), "w") as f:
+                    f.write("# Generated in {} seconds\n".format(end - start))
+                    f.write(best_in_generation.get_script_text())
 
         self.evaluate(scripts=self._scripts, rounds=self._rounds, do_cleanup=False)
         best = self.get_elites(scripts=self._scripts, elites=1)[0]
