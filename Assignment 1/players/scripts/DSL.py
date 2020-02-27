@@ -13,7 +13,8 @@ class DSL:
         self._grammar['B'] = ['B1', 'B1 and B1']
         self._grammar['B1'] = ['DSL.isDoubles(a)', 'DSL.containsNumber(a, NUMBER )', 'DSL.actionWinsColumn(state,a)', 'DSL.hasWonColumn(state,a)', 
                                'DSL.numberPositionsProgressedThisRoundColumn(state, NUMBER ) > SMALL_NUMBER and DSL.isStopAction(a)', 'DSL.isStopAction(a)',
-                               'DSL.numberPositionsConquered(state, NUMBER ) > SMALL_NUMBER and DSL.containsNumber(a, NUMBER )']
+                               'DSL.numberPositionsConquered(state, NUMBER ) > SMALL_NUMBER and DSL.containsNumber(a, NUMBER )',
+                               'DSL.hasIncentive(state, a, SMALL_NUMBER, SMALL_NUMBER)']
         self._grammar['NUMBER'] = ['2', '3', '4', '5', '6']
         self._grammar['SMALL_NUMBER'] = ['0', '1', '2'] 
     
@@ -88,3 +89,50 @@ class DSL:
         if isinstance(action, str) and action == 'n':
             return True
         return False
+
+    @staticmethod
+    def hasIncentive(state, action, small_number_1, small_number_2):
+        """
+        Returns true with probability proportional to the action's gathered incentive points when incentives are
+        to catch up to the opponent at most small_number_1 steps away or
+        to reach the top of the column if it is at most small_number_2 steps away.
+        """
+        copy_state = state.clone()
+
+        player_column_positions = {}
+
+        if isinstance(action, str): # Not sure what to do with these other than selecting randomly
+            return random.randint(0, 100) < 50
+        
+        copy_state.play(action)
+
+        who_won, is_over = copy_state.is_finished()
+
+        if is_over == True and who_won != copy_state.player_turn:   # Select action if it wins the game
+            return True
+
+        for column_index in range(copy_state.board_game.column_range[0], copy_state.board_game.column_range[1] + 1):    # Current player's marker positions after this action
+            player_column_positions[column_index] = copy_state.number_positions_conquered(column_index) + copy_state.number_positions_conquered_this_round(column_index)
+        
+        copy_state.play("n")    # End turn so that the other player becomes active and we can get the positions of its markers
+
+        incentive_points = 0    # Gather up all the different incentives
+
+        for column_index, _ in enumerate(copy_state.board_game.board):
+            if column_index in action:
+                column_size = len(copy_state.board_game.board[column_index])
+                opponent_column_position = copy_state.number_positions_conquered(column_index)
+
+                distance_from_opponent = opponent_column_position - player_column_positions[column_index]
+                distance_from_top = column_size - player_column_positions[column_index]
+
+                if opponent_column_position >= 0 and abs(distance_from_opponent) <= small_number_1:  # If opponent is within reach
+                    incentive_points += 1   # Could be modified to have varying points depending on the distance
+                
+                if distance_from_top <= small_number_2: # If the top of the column is within reach
+                    incentive_points += 1
+        
+        if random.randint(0, 100) <= incentive_points * 10 + 50:    # Higher the total incentive, higher the probability of selecting the action
+            return True
+        else:
+            return False
