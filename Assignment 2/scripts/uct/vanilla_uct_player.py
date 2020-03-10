@@ -1,9 +1,9 @@
 from collections import defaultdict
-from game import Game
+from scripts.cant_stop.game import Game
 import math, random
 import numpy as np
 import copy
-from players.uct_player import UCTPlayer, Node
+from scripts.uct.uct_player import UCTPlayer, Node
 
 class Vanilla_UCT(UCTPlayer):
 
