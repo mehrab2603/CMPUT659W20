@@ -8,7 +8,7 @@ class DSL:
         self.start = 'S'
         
         self._grammar = {}
-        self._grammar[self.start] = ['if B S', '']
+        self._grammar[self.start] = ['if B']
         self._grammar['B'] = ['B1', 'B1 and B1']
         self._grammar['B1'] = ['DSL.isDoubles(a)', 'DSL.containsNumber(a, NUMBER )', 'DSL.actionWinsColumn(state,a)', 'DSL.hasWonColumn(state,a)', 
                                'DSL.numberPositionsProgressedThisRoundColumn(state, NUMBER ) > SMALL_NUMBER and DSL.isStopAction(a)', 'DSL.isStopAction(a)',
