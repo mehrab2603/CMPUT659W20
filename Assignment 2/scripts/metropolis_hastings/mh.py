@@ -24,9 +24,8 @@ class MetropolisHastings:
         self.rule_tree = RuleTree(dsl._grammar, dsl.start)
         self.ground_truths = copy.deepcopy(ground_truths)
 
-    def get_script(self, id, rule=None, beta=0.5):
-        if rule is None:
-            rule = self.rule_tree.mutate_tree().get_rule()
+    def get_script(self, id, beta=0.5):
+        rule = self.rule_tree.mutate_tree().get_rule()
 
         text = [
             "import random",
@@ -88,11 +87,17 @@ class MetropolisHastings:
 
         for i in range(sample_count):
             iteration_samples = [self.get_script(id="Sample{}Iteration{}".format(i, 0))]
-            iteration_sampled_rules = [iteration_samples[-1]["rule"]]
+
+            best_script_in_iteration = iteration_samples[-1]
+            best_c_value_in_iteration = best_script_in_iteration["c_value"]
 
             for j in range(iterations):
                 previous = iteration_samples[-1]
                 candidate = self.get_script(id="Sample{}Iteration{}".format(i, j + 1))
+
+                if candidate["c_value"] > best_c_value_in_iteration:
+                    best_c_value_in_iteration = candidate["c_value"]
+                    best_script_in_iteration = candidate
 
                 accept = min(1, candidate["c_value"] / previous["c_value"])
 
@@ -100,13 +105,11 @@ class MetropolisHastings:
                     iteration_samples.append(candidate)
                 else:
                     iteration_samples.append(previous)
-                
-                iteration_sampled_rules = [iteration_samples[-1]["rule"]]
 
-            selected_samples.append(Counter(iteration_sampled_rules).most_common(1)[0][0])
+            selected_samples.append(best_script_in_iteration)
 
-            print("Sampled rule: {}".format(selected_samples[i]))
-            self.remove_agreeing_ground_truth(self.get_script(id="Selected{}".format(i), rule=selected_samples[i]))
+            print("Sampled rule: {}".format(selected_samples[i]["rule"]))
+            self.remove_agreeing_ground_truth(selected_samples[i])
 
         return selected_samples
 
