@@ -3,7 +3,7 @@ import random
 
 class DSL:
     
-    def __init__(self):
+    def __init__(self, column_range, extended=False):
         
         self.start = 'S'
         
@@ -12,10 +12,9 @@ class DSL:
         self._grammar['B'] = ['B1', 'B1 and B1']
         self._grammar['B1'] = ['DSL.isDoubles(a)', 'DSL.containsNumber(a, NUMBER )', 'DSL.actionWinsColumn(state,a)', 'DSL.hasWonColumn(state,a)', 
                                'DSL.numberPositionsProgressedThisRoundColumn(state, NUMBER ) > SMALL_NUMBER and DSL.isStopAction(a)', 'DSL.isStopAction(a)',
-                               'DSL.numberPositionsConquered(state, NUMBER ) > SMALL_NUMBER and DSL.containsNumber(a, NUMBER )',
-                               'DSL.hasIncentive(state, a, SMALL_NUMBER, SMALL_NUMBER)']
-        self._grammar['NUMBER'] = ['2', '3', '4', '5', '6']
-        self._grammar['SMALL_NUMBER'] = ['0', '1', '2'] 
+                               'DSL.numberPositionsConquered(state, NUMBER ) > SMALL_NUMBER and DSL.containsNumber(a, NUMBER )'] + (['DSL.hasIncentive(state, a, SMALL_NUMBER, SMALL_NUMBER)'] if extended else [])
+        self._grammar['NUMBER'] = [str(i) for i in range(column_range[0], column_range[1] + 1)]
+        self._grammar['SMALL_NUMBER'] = ['0', '1', '2']
     
     @staticmethod
     def isDoubles(action):
