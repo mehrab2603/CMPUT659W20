@@ -1,0 +1,30 @@
+############################ Date: 19/03/2020 Time: 00:54:14 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 1, 2) and DSL.hasIncentive(state, a, 0, 2)
+if DSL.hasIncentive(state, a, 0, 2)
+if DSL.hasIncentive(state, a, 0, 2)
+############################ Date: 19/03/2020 Time: 04:21:36 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 0, 0)
+if DSL.hasIncentive(state, a, 0, 0)
+if DSL.hasIncentive(state, a, 1, 2) and DSL.hasIncentive(state, a, 1, 1)
+############################ Date: 19/03/2020 Time: 07:56:33 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 2, 1) and DSL.hasIncentive(state, a, 1, 2)
+if DSL.hasIncentive(state, a, 2, 1) and DSL.hasIncentive(state, a, 1, 1)
+if DSL.hasIncentive(state, a, 0, 1)
+############################ Date: 19/03/2020 Time: 13:18:58 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.hasIncentive(state, a, 0, 2)
+if DSL.hasIncentive(state, a, 1, 0) and DSL.hasIncentive(state, a, 2, 2)
+############################ Date: 20/03/2020 Time: 04:19:57 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a) and DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 2, 1) and DSL.hasIncentive(state, a, 1, 0)
+if DSL.hasIncentive(state, a, 2, 0) and DSL.hasIncentive(state, a, 1, 1)
+if DSL.hasIncentive(state, a, 0, 1)

@@ -1,0 +1,30 @@
+############################ Date: 18/03/2020 Time: 08:55:56 ############################
+if DSL.containsNumber(a, 4 ) and DSL.hasIncentive(state, a, 1, 0)
+if DSL.hasIncentive(state, a, 1, 0)
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 2, 0)
+if DSL.hasIncentive(state, a, 0, 0)
+############################ Date: 18/03/2020 Time: 09:43:51 ############################
+if DSL.hasIncentive(state, a, 0, 2) and DSL.containsNumber(a, 4 )
+if DSL.hasIncentive(state, a, 1, 1)
+if DSL.hasIncentive(state, a, 0, 1)
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 0, 1) and DSL.hasIncentive(state, a, 1, 1)
+############################ Date: 18/03/2020 Time: 10:48:19 ############################
+if DSL.containsNumber(a, 4 ) and DSL.hasIncentive(state, a, 0, 2)
+if DSL.hasIncentive(state, a, 1, 2)
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 2, 1) and DSL.hasIncentive(state, a, 1, 2)
+if DSL.hasIncentive(state, a, 0, 1)
+############################ Date: 18/03/2020 Time: 11:31:58 ############################
+if DSL.containsNumber(a, 4 ) and DSL.hasIncentive(state, a, 0, 0)
+if DSL.hasIncentive(state, a, 2, 0)
+if DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 2, 0)
+if DSL.hasIncentive(state, a, 2, 0)
+############################ Date: 18/03/2020 Time: 12:06:44 ############################
+if DSL.hasIncentive(state, a, 1, 0) and DSL.containsNumber(a, 4 )
+if DSL.hasIncentive(state, a, 2, 1)
+if DSL.isStopAction(a) and DSL.isStopAction(a)
+if DSL.hasIncentive(state, a, 0, 1)
+if DSL.hasIncentive(state, a, 1, 1)

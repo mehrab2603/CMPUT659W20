@@ -1,0 +1,30 @@
+############################ Date: 18/03/2020 Time: 13:59:29 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.containsNumber(a, 6 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 16:02:15 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.containsNumber(a, 6 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 17:54:47 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.containsNumber(a, 6 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 19:45:05 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.containsNumber(a, 6 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 21:33:33 ############################
+if DSL.containsNumber(a, 8 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 7 )
+if DSL.containsNumber(a, 6 )
+if DSL.isStopAction(a)

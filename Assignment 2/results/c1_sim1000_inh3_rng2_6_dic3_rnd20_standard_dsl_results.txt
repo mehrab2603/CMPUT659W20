@@ -1,0 +1,30 @@
+############################ Date: 18/03/2020 Time: 06:37:27 ############################
+if DSL.containsNumber(a, 4 )
+if DSL.numberPositionsProgressedThisRoundColumn(state, 5 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 ) and DSL.containsNumber(a, 3 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 5 )
+############################ Date: 18/03/2020 Time: 06:57:43 ############################
+if DSL.containsNumber(a, 4 )
+if DSL.numberPositionsProgressedThisRoundColumn(state, 5 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 5 )
+############################ Date: 18/03/2020 Time: 07:22:26 ############################
+if DSL.containsNumber(a, 4 )
+if DSL.numberPositionsProgressedThisRoundColumn(state, 5 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 5 )
+############################ Date: 18/03/2020 Time: 07:49:00 ############################
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a) and DSL.numberPositionsProgressedThisRoundColumn(state, 5 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 5 )
+############################ Date: 18/03/2020 Time: 08:12:49 ############################
+if DSL.containsNumber(a, 4 )
+if DSL.numberPositionsProgressedThisRoundColumn(state, 5 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 5 )
