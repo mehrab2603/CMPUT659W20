@@ -1,0 +1,30 @@
+############################ Date: 18/03/2020 Time: 04:09:15 ############################
+if DSL.actionWinsColumn(state,a)
+if DSL.hasWonColumn(state,a) and DSL.isStopAction(a)
+if DSL.isStopAction(a) and DSL.numberPositionsProgressedThisRoundColumn(state, 2 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 04:17:00 ############################
+if DSL.actionWinsColumn(state,a) and DSL.actionWinsColumn(state,a)
+if DSL.hasWonColumn(state,a) and DSL.isStopAction(a)
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a)
+if DSL.containsNumber(a, 3 )
+############################ Date: 18/03/2020 Time: 04:24:37 ############################
+if DSL.actionWinsColumn(state,a)
+if DSL.isStopAction(a) and DSL.hasWonColumn(state,a)
+if DSL.numberPositionsProgressedThisRoundColumn(state, 2 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 04:32:06 ############################
+if DSL.actionWinsColumn(state,a) and DSL.actionWinsColumn(state,a)
+if DSL.isStopAction(a) and DSL.hasWonColumn(state,a)
+if DSL.numberPositionsProgressedThisRoundColumn(state, 2 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a) and DSL.isStopAction(a)
+############################ Date: 18/03/2020 Time: 04:39:41 ############################
+if DSL.actionWinsColumn(state,a)
+if DSL.hasWonColumn(state,a) and DSL.isStopAction(a)
+if DSL.isStopAction(a) and DSL.numberPositionsProgressedThisRoundColumn(state, 2 ) > 0 and DSL.isStopAction(a)
+if DSL.containsNumber(a, 4 )
+if DSL.isStopAction(a)
